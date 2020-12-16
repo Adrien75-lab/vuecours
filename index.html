@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Slide Show</title>
+    <style>
+        .fade-enter-active{
+            animation:fade-in .5s;
+
+        }
+        .fade-leave-active {
+            animation:fade-in .5s reverse;
+        }
+        @keyframes fade-in {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+        img {
+            position:relative;
+
+            width:600px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        
+        <div class="carousel">
+        <transition name="fade">
+            <img v-show="count %2" :src="'assets/' + slides[index].src" >
+
+        </transition>
+    </div>
+</div>
+    
+      
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
+    <script src="mycomponent.js"></script>
+    <script>
+        // Mount must be called after all components calls
+        const vm = app.mount("#app");
+    </script>
+</body>
+</html>
